@@ -122,4 +122,30 @@ class SinglyLinkedList{
         return removeNode;
     }
 
+    reverse() {
+        var node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+  
+        var prev = null;
+        var next = null;
+        while(node){
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+      }
+  
+      printArr(){
+          var arr = [];
+          var current = this.head;
+          while(current){
+              arr.push(current.val);
+              current = current.next
+          }
+          console.log(arr)
+      }
+
 }
