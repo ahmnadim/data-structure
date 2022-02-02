@@ -110,4 +110,16 @@ class SinglyLinkedList{
         return true;
     }
 
+    remove(index){
+        if(index < 0 || index >= this.length) return null;
+        if(index == 0) return this.shift();
+        if(index == this.length-1) return this.pop();
+
+        var prevNode = this.get(index-1);
+        var removeNode = prevNode.next;
+        prevNode.next = removeNode.next;
+        this.length--;
+        return removeNode;
+    }
+
 }
