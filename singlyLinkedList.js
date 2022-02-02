@@ -95,4 +95,19 @@ class SinglyLinkedList{
         return false;
     }
 
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index == 0) return !!this.unshift(val);
+        if(index == this.length) return !!this.push(val)
+
+        var prevNode = this.get(index-1);
+        var nextNode = prevNode.next;
+        var current = new Node(val);
+
+        prevNode.next = current;
+        current.next = newNode;
+        this.length++;
+        return true;
+    }
+
 }
