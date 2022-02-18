@@ -45,6 +45,24 @@ class DoublyLinkList{
         this.length--;
         return popedNode;
     }
+
+    shift(){
+        if(!this.head){
+            return undefined;
+        }
+        var shiftNode = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.head = shiftNode.next;
+            this.head.prev = null;
+            shiftNode.next = null;
+        }
+
+        this.length--;
+        return this.shiftNode;
+    }
 }
 
 var dll = new DoublyLinkList()
